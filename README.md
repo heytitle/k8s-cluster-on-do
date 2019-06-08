@@ -17,6 +17,11 @@ $ rm -rf hostfile-dir/* && python scripts/create-host-files.py
 $ scripts/setup-cluster.sh
 ```
 
+3.1 Configure local kubectl
+```
+scp -r ubuntu@<master_ip>:~/.kube ~/
+```
+
 4. Destroy clusters
 ```
 $ terraform destroy
