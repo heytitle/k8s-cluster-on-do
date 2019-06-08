@@ -3,7 +3,8 @@
 ## Steps
 1. Create Droplets using Terraform
 ```
-$ TF_VAR_do_token=<TOKEN> TF_VAR_no_clusters=<NO_CLUSTER> ./scripts/tf-apply.sh
+# Assume all variables in terraform.tfvars are set.
+$ ./scripts/tf-apply.sh
 ```
 
 2. Prepare Ansible inventory for each cluster
