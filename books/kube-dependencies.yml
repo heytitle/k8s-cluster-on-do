@@ -23,22 +23,40 @@
       state: present
       filename: 'kubernetes'
 
+   - name: install kubernetes-cni
+     apt:
+       name: kubernetes-cni
+       state: absent
+       update_cache: true
+
+   - name: install kubernetes-cni
+     apt:
+       name: kubernetes-cni=0.6.0-00
+       state: present
+       update_cache: true
+
    - name: install kubelet
      apt:
-       name: kubelet=1.14.0-00
+       name: kubelet=1.13.0-00
        state: present
        update_cache: true
 
    - name: install kubeadm
      apt:
-       name: kubeadm=1.14.0-00
+       name: kubeadm=1.13.0-00
        state: present
 
 - hosts: master
   become: yes
   tasks:
+   - name: install kubernetes-cni
+     apt:
+       name: kubernetes-cni=0.6.0-00
+       state: present
+       update_cache: true
+
    - name: install kubectl
      apt:
-       name: kubectl=1.14.0-00
+       name: kubectl=1.13.0-00
        state: present
        force: yes
